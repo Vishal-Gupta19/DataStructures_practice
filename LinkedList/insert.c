@@ -1,10 +1,6 @@
 #include<stdlib.h>
 #include<stdio.h>
-
-struct Node {
-	int data;
-	struct Node *next;
-};
+#include"def.h"
 
 int lengthOfList(struct Node *head);
 
@@ -37,26 +33,10 @@ void PrintReverse(struct Node *head) {
 			temp = temp->next;
 			j++;
 		}
-		if (temp != NULL) printf(" %d", temp->data);
+		if (temp != NULL) printf("%d ", temp->data);
 	}
-
+	printf("\n");
 }
-
-void PrintReverseNew(struct Node* head_ref, int n) 
-{ 
-	printf("printing in new style\n");
-	int j = 0; 
-        struct Node* current = head_ref; 
-	while (current != NULL) { 
-	     
-	       for (int i = 0; i < 2 * (n - j); i++) 
-	            printf(" "); 
-	       printf("\r"); 
-	       printf("%d", current->data); 
-	       current = current->next; 
-	       j++; 
-      } 
-} 
 
 int lengthOfList(struct Node *head) {
 	int len = 0;
@@ -100,6 +80,13 @@ void InsertAtEnd(struct Node **head, int x) {
 void InsertAtPosition(struct Node *head, int num, int pos) {
 	struct Node *tmp = head;
 	struct Node *temp = (struct Node*)malloc(sizeof(struct Node));
+
+	if (pos > lengthOfList(head) + 1 || pos < 1) {
+		printf("Invalid position given\n");
+		free(temp);
+		return;
+	}
+
 	if (temp != NULL) {
 		temp->data = num;
 		temp->next = NULL;
@@ -120,7 +107,7 @@ int main() {
 	int n, i, x;
 
 	head = NULL;
-	printf("How many numbers? ");
+	printf("\nHow many numbers do you want ot insert? - ");
 	scanf("%d", &n);
 	printf("Enter numbers: \n");
 	for(i = 0; i < n; i++) {
@@ -129,23 +116,30 @@ int main() {
 		InsertAtEnd(&head, x);
 	}
 
-	printf("\nPrinting list:\n");
+	printf("\nPrinting list: ");
 	Print(head);
-	printf("\nPrinting list in reverse order:\n");
+	printf("Printing list in reverse order: ");
 	PrintReverse(head);
 
-	len = lengthOfList(head);
-	printf("\n\nLength of List is %d\n", len);
-	PrintReverseNew(head, len);
-#if 0
-	printf("\n\nInsert an element at a given position\n");
-	printf("Enter position betwwen 1 and %d: \n", len);
+	printf("\n\nInsert an element at a given position. . .");
+	printf("\nEnter position to insert: ");
 	scanf("%d", &pos);
-	printf("Enter number: \n");
+	printf("Enter number: ");
 	scanf("%d", &num);
 	InsertAtPosition(head, num, pos);
-	printf("Printing list:\n");
+	printf("\nPrinting list: ");
 	Print(head);
-#endif
+
+	printf("\n\nEnter position of the node to delete: ");
+	scanf("%d", &pos);
+	DeleteNode(&head, pos);
+	printf("Printing list: ");
+	Print(head);
+
+	printf("\n\nReversing the list . . .");
+	ReverseList(&head);
+	printf("\nPrinting list: ");
+	Print(head);
+
 	return 0;
 }
