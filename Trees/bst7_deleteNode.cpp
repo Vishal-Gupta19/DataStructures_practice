@@ -106,19 +106,17 @@ int main() {
 /*
  * OUTPUT
  * ------------
- *  Root address:0x563e3c264e70 data:15
- *  Root address:0x563e3c2652a0 data:10
- *  Root address:0x563e3c2652c0 data:20
- *  Root address:0x563e3c2652e0 data:25
- *  Root address:0x563e3c265300 data:8
- *  Root address:0x563e3c265320 data:12
- *  Root address:0x563e3c265340 data:17
- *  Root address:0x563e3c265360 data:13
- *  Root address:0x563e3c265380 data:11
+ *  Root address:0x55f72f3aae70 data:15
+ *  Root address:0x55f72f3ab2a0 data:10
+ *  Root address:0x55f72f3ab2c0 data:20
+ *  Root address:0x55f72f3ab2e0 data:25
+ *  Root address:0x55f72f3ab300 data:8
+ *  Root address:0x55f72f3ab320 data:12
+ *  Root address:0x55f72f3ab340 data:17
+ *  Root address:0x55f72f3ab360 data:13
+ *  Root address:0x55f72f3ab380 data:11
  *
- *  Sum of all nodes: 131
  *  Post Order traversal: 8 11 13 12 10 17 25 20 15
  *
- *  Output of sumOfChilds: 131
- *  Post Order traversal: 8 11 13 36 54 17 25 62 131
+ *  Post Order traversal: 8 11 13 12 10 17 20 15
  */
